@@ -34,12 +34,8 @@
 
                         <?php
                             $this->pageNav(
-                                '<svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-zuo"></use>
-                    </svg>',
-                                '<svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-you"></use>
-                    </svg>',
+                                '<span class="fa-3x fa-solid fa-chevron-left"></span>',
+                                '<span class="fa-3x fa-solid fa-chevron-right"></span>',
                                 3, '...', array(
                                 'wrapTag' => 'ul',
                                 'wrapClass' => 'pagination justify-content-center',

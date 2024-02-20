@@ -94,9 +94,7 @@ class utils
                 } else {
                     $content .= '<div class="nav-item">
                     <a class="' . $class . '" href="' . $pages->permalink . '" title="' . $pages->title . '">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-daohang"></use>
-                            </svg>
+                            <span class="nav-item-icon fa-solid fa-box-archive"></span>
                             <span class="nav-item-text">' . $pages->title . '</span>
                     </a></div>';
                 }
@@ -398,11 +396,9 @@ class utils
             foreach ($getIconRow as $key => $value) {
                 $iconInfo = explode('+', $value);
                 $content = <<<EOF
-                <a href="$iconInfo[2]" title="$iconInfo[0]">
-                  <svg class="icon" aria-hidden="true">
-                      <use xlink:href="#$iconInfo[1]"></use>
-                  </svg>
-                  </a>
+                <a href="$iconInfo[2]" title="$iconInfo[0]" target="_blank">
+                    <span class="fa-2x $iconInfo[1]"></span>
+                </a>
 EOF;
                 $text .= $content;
 

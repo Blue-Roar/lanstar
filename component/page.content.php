@@ -16,16 +16,12 @@
     <div class="article-detail">
         <div class="post-info">
             <div class="post-info-icon">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-redu"></use>
-                </svg>
+                <span class="fa-solid fa-fire"></span>
                 <?php utils::getPostView($this); ?>阅读
             </div>
             <div class="post-info-icon"></div>
             <div class="post-info-icon">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shijian"></use>
-                </svg>
+                <span class="fa-solid fa-calendar-days"></span>
                 <time datetime="<?php $this->date('c'); ?>">
                     <?php $this->date(); ?></time>
             </div>

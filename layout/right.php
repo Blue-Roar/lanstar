@@ -7,17 +7,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 <div class="search-bar">
     <form id="search" method="post" action="<?php $this->options->siteUrl(); ?>" role="search">
         <input type="text" id="s" name="s" class="nav-search-input" placeholder="<?php _e('输入关键字搜索'); ?>">
-        <button class="nav-search-btn" type="submit">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-sousuo"></use>
-            </svg>
-        </button>
+        <button class="nav-search-btn" type="submit"><span class="fa-2x fa-solid fa-search" style="vertical-align: middle;"></span></button>
     </form>
 </div>
 <?php if ($this->options->sidebarBlock && in_array('ShowYourCouple', $this->options->sidebarBlock)): ?>
     <div class="sidebar-box couple">
         <img class="pic" src="<?php $this->options->asideAvatar(); ?>" alt="博主">
-        <img class="couple-love" src="<?php utils::indexTheme('assets/img/love.png'); ?>" alt="爱心">
+        <span class="couple-love fa-2x fa-solid fa-heart fa-beat"></span>
         <img class="pic" src="<?php $this->options->taAvatar(); ?>" alt="另一半">
         <div id="our-company" data-start="<?php $this->options->company(); ?>"></div>
     </div>
@@ -44,15 +40,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             </div>
         </div>
         <div class="card-icon">
-            <a href="<?php $this->options->siteUrl(); ?>/feed" title="rss">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-rss"></use>
-                </svg>
-            </a>
+            <a href="<?php $this->options->siteUrl(); ?>feed" title="rss" target="_blank"><span class="fa-2x fa-solid fa-rss"></span></a>
             <?=  utils::handleRightIcon() ?>
         </div>
         <div class="time-text">
-            <span>已在风雨中度过<?=  utils::getBuildTime($this->options->startTime);?></span>
+            <span><?php $this->options->startTimeStr(); ?><?=utils::getBuildTime($this->options->startTime)?></span>
         </div>
     </div>
 <?php endif; ?>
@@ -81,9 +73,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                                             <?php contents::parseHide($comments->excerpt(35, '...')); ?>
                                         </a>
                                     </p>
-                                    <p class="card-text"><small
-                                            class="text-muted"><?=  date('Y-m-d', $comments->created); ?></small>
-                                    </p>
+                                    <p class="card-text"><small class="text-muted"><?=  date('Y-m-d', $comments->created); ?></small></p>
                                 </div>
                             </div>
                         </div>

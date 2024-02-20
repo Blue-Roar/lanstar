@@ -16,21 +16,15 @@
         <div class="article-detail">
                 <div class="post-info">
                     <div class="post-info-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-redu"></use>
-                        </svg>
+                        <span class="fa-solid fa-fire"></span>
                         <?php utils::getPostView($this); ?>阅读
                     </div>
                     <div class="post-info-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-pinglun"></use>
-                        </svg>
+                        <span class="fa-solid fa-comments"></span>
                         <?php $this->commentsNum(); ?>条评论
                     </div>
                     <div class="post-info-icon">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-shijian"></use>
-                        </svg>
+                        <span class="fa-solid fa-calendar-days"></span>
                         <time datetime="<?php $this->date('c'); ?>">
                             <?php $this->date(); ?></time>
                     </div>
@@ -63,21 +57,15 @@
     <div class="license">
         <div class="content">
             <div class="item">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-yonghu"></use>
-                </svg>
+                <span class="fa-solid fa-at"></span>
                 <span>版权属于：<?php $this->author(); ?></span>
             </div>
             <div class="item">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-lianjie"></use>
-                </svg>
+                <span class="fa-solid fa-link"></span>
                 <span>本文链接：<a class="item-link" href="<?php $this->permalink(); ?>" title="转载时请注明本文出处及文章链接"><?php $this->permalink(); ?></a></span>
             </div>
             <div class="item">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-A1"></use>
-                </svg>
+                <span class="fa-brands fa-creative-commons"></span>
                 <span>作品采用：<?= $this->options->LicenseInfo ? $this->options->LicenseInfo : '本作品采用 <a rel="license nofollow" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可。' ?></span>
             </div>
         </div>
@@ -89,39 +77,28 @@
     </div>
     <div class="article-action">
         <div class="article-action-item">
-            <a id="comment" href="#comment" data-bs-toggle="tooltip" data-bs-placement="bottom"
-               data-bs-title="评论">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-liuyanban"></use>
-                </svg>
+            <a id="comment" href="#comment" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="评论">
+                <span class="fa-2x fa-solid fa-comment-dots"></span>
             </a>
         </div>
-        <div class="article-action-item" id="agree-btn" data-cid="<?php $this->cid(); ?>"
-             data-bs-toggle="tooltip" data-bs-placement="bottom"
-             data-bs-title="点赞">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-xihuan"></use>
-            </svg>
+        <div class="article-action-item" id="agree-btn" data-cid="<?php $this->cid(); ?>" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="点赞">
+            <span class="fa-2x fa-solid fa-heart"></span>
             <?php $agree = $this->hidden ? array('agree' => 0, 'recording' => true) : utils::agreeNum($this->cid); ?>
             <span class="agree-num"><?= $agree['agree']; ?></span>
         </div>
         <div class="article-action-item">
-            <svg class="icon" aria-hidden="true"
-                 data-bs-toggle="dropdown" aria-expanded="false"
-            >
-                <use xlink:href="#icon-fuzhilianjie"></use>
-            </svg>
+            <span class="fa-2x fa-solid fa-link" data-bs-toggle="dropdown" aria-expanded="false"></span>
             <ul class="dropdown-menu">
                 <li><a class="dropdown-item js-pjax" target="_blank"
                        href="https://connect.qq.com/widget/shareqq/index.html?url=<?php
-                       $this->permalink ?>&sharesource=qzone&title=<?php $this->title ?>&pics=<?= $this->fields->banner ? $this->fields->banner() : utils::indexTheme('assets/img/default.jpg') ?>&summary=<?php $this->excerpt(100) ?>">分享到QQ</a>
+                       $this->permalink ?>&sharesource=qzone&title=<?php $this->title ?>&pics=<?= $this->fields->banner ? $this->fields->banner() : utils::indexTheme('assets/img/default.jpg') ?>&summary=<?php $this->excerpt(100) ?>"><span class="fa-brands fa-qq"></span> 分享到QQ</a>
                 </li>
                 <li><a class="dropdown-item js-pjax"
                        href="https://service.weibo.com/share/share.php?url=<?php $this->permalink(); ?>&title=<?php $this->title(); ?>"
-                       target="_blank">分享到微博</a></li>
+                       target="_blank"><span class="fa-brands fa-weibo"></span> 分享到微博</a></li>
                 <li><a class="dropdown-item js-pjax"
                        href="https://twitter.com/intent/tweet?url=<?php $this->permalink(); ?>&text=<?php $this->title(); ?>"
-                       target="_blank">分享到Twitter</a></li>
+                       target="_blank"><span class="fa-brands fa-twitter"></span> 分享到Twitter</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>

@@ -4,9 +4,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
             <a href="<?php $this->options->siteUrl(); ?>">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shouye1"></use>
-                </svg>
+                <span class="fa-solid fa-home"></span>
                 <span>首页</span>
             </a>
         </li>

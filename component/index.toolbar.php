@@ -10,17 +10,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <div class="toolbar-left">
         <span class="header">
             <?php if ($this->is('index')): ?>
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shouye1"></use>
-                </svg>首页
+                <span class="fa-solid fa-home"></span> 首页
             <?php else: ?>
                 <?php $this->need('component/breadcrumb.content.php'); ?>
             <?php endif; ?>
         </span>
         <div class="mobile-left">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-daohang1"></use>
-            </svg>
+            <span class="fa-2x fa-solid fa-bars"></span>
         </div>
     </div>
     <div class="toolbar-right">

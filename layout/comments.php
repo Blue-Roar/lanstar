@@ -82,11 +82,13 @@ function threadedComments($comments, $options)
                 <div class="comments-toolbar">
                     <div id="OwO" class="OwO"></div>
                     <div class="option">
-                        <label for="secret-button">私密回复</label>
-                        <input type="checkbox" id="secret-button" name="secret">
-                        <label for="secret-button" class="secret-label" title="开启该功能，您的评论仅作者和评论双方可见">
-                            <span class="circle"></span>
-                        </label>
+                        <span>
+                            <label for="secret-button" style="vertical-align: super;">私密回复</label>
+                            <input type="checkbox" id="secret-button" name="secret">
+                            <label for="secret-button" class="secret-label" title="开启该功能，您的评论仅作者和评论双方可见">
+                                <span class="circle"></span>
+                            </label>
+                        </span>
                         <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
                     </div>
                 </div>
@@ -98,12 +100,8 @@ function threadedComments($comments, $options)
             <?php $comments->listComments(); ?>
             <?php
             $comments->pageNav(
-                '<svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-zuo"></use>
-                </svg>',
-                '<svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-you"></use>
-                </svg>',
+                '<span class="fa-3x fa-solid fa-chevron-left"></span>',
+                '<span class="fa-3x fa-solid fa-chevron-right"></span>',
                 1, '...', array(
                 'wrapTag' => 'ul',
                 'wrapClass' => 'pagination justify-content-center',

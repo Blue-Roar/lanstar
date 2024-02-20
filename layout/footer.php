@@ -8,32 +8,28 @@
     <p>
         <?php $this->options->footerEcho();?>
     </p>
-    <p class="footer-item">由 <a href="https://typecho.org/" target="_blank"><img style="height:2rem;filter:brightness(1);" src="https://typecho.org/usr/themes/bluecode/img/typecho-logo.svg" alt="typecho"></img></a> + <a href="https://dyedd.cn/" title="禁止仿制">Lanstar</a> 主题强力驱动</p>
+    <p class="footer-item">由 <a href="https://typecho.org/" target="_blank">Typecho</a> + <a href="https://dyedd.cn/" title="禁止仿制" target="_blank">Lanstar</a> 主题强力驱动</p>
 </footer>
 <?php $this->footer(); ?>
 <div class="tools">
     <?php if ($this->options->darkBtn): ?>
         <div class="chose-mode-day" id="night-mode" type="button">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-yueliang"></use>
-            </svg><span>暗黑模式</span>
+            <span class="fa-3x fa-solid fa-sun"></span>
+            <p>暗黑模式</p>
         </div>
         <div class="chose-mode-moon" id="night-mode" type="button">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-taiyang"></use>
-            </svg><span>暗黑模式</span>
+            <span class="fa-3x fa-solid fa-sun"></span>
+            <p>暗黑模式</p>
         </div>
     <?php endif; ?>
     <?php if($this->is('post')): ?>
         <div onclick="location.href='#comment'">
-            <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-pinglun2"></use>
-            </svg><span>评论</span>
+            <span class="fa-3x fa-solid fa-comment-dots"></span>
+            <p>评论</p>
         </div>
     <?php endif; ?>
     <div class="back-to-top" onclick="app.addBackTop()">
-        <svg class="icon" aria-hidden="true">
-            <use xlink:href="#icon-fanhuidingbu-"></use>
-        </svg><span>返回顶部</span>
+        <span class="fa-3x fa-solid fa-chevron-up"></span>
+        <p>返回顶部</p>
     </div>
 </div>

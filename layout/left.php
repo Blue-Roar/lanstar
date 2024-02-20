@@ -27,10 +27,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <div class="nav-item">
             <a<?php if ($this->is('index')): ?> class="nav-link active"<?php else: ?> class="nav-link"<?php endif; ?>
                 href="<?php $this->options->siteUrl(); ?>">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shouye"></use>
-                </svg>
-                <span class="nav-item-text"><?php _e('首页'); ?></span>
+                <span class="nav-item-icon fa-solid fa-home" style="margin-left: .25rem;"></span>
+                <span class="nav-item-text" style="font-size:1.5em;"><?php _e('首页'); ?></span>
             </a>
         </div>
         <?php $this->widget('Widget_Contents_Page_List')->to($pages); ?>
@@ -39,9 +37,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <?php if ($this->user->hasLogin()): ?>
         <div class="nav-item">
             <a class="nav-link" href="<?php $this->options->adminUrl(); ?>" title="进入后台">
-                <svg class="icon" aria-hidden="true">
-                    <use xlink:href="#icon-shezhi"></use>
-                </svg>
+                <span class="nav-item-icon fa-solid fa-gear"></span>
                 <span class="nav-item-text">后台</span>
             </a>
         </div>

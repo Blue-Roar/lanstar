@@ -123,7 +123,11 @@ EOF;
     $footerName->setAttribute('class', 'theme-setting-content theme-setting-global');
     $form->addInput($footerName);
 
-    $startTime = new \Typecho\Widget\Helper\Form\Element\Text('startTime', NULL, NULL, '建站时间', '格式为2022-03-28 13:55:00');
+    $startTimeStr = new \Typecho\Widget\Helper\Form\Element\Text('startTimeStr', NULL, '已在风雨中度过', '建站时间前的文本', '默认值为“已在风雨中度过”');
+    $startTimeStr->setAttribute('class', 'theme-setting-content theme-setting-global');
+    $form->addInput($startTimeStr);
+
+    $startTime = new \Typecho\Widget\Helper\Form\Element\Text('startTime', NULL, NULL, '建站日期', '格式为2022-03-28');//'格式为2022-03-28 13:55:00');
     $startTime->setAttribute('class', 'theme-setting-content theme-setting-global');
     $form->addInput($startTime);
 
@@ -182,7 +186,7 @@ EOF;
     $asideStatus->setAttribute('class', 'theme-setting-content theme-setting-aside');
     $form->addInput($asideStatus);
 
-    $rightIcon = new \Typecho\Widget\Helper\Form\Element\Textarea('rightIcon', NULL, NULL, '媒体信息', '名称+图标+地址，一行一个');
+    $rightIcon = new \Typecho\Widget\Helper\Form\Element\Textarea('rightIcon', NULL, NULL, '媒体信息', '名称+图标类+地址，一行一个');
     $rightIcon->setAttribute('class', 'theme-setting-content theme-setting-aside');
     $form->addInput($rightIcon);
 

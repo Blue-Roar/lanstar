@@ -224,12 +224,12 @@ a, a:hover {
     background-color: var(--theme-choose-color);
     color: var(--theme-color);
 }
-
-.nav-link .icon {
+.nav-item-icon {
     margin-left: .5rem;
     margin-right: 2rem;
+    vertical-align: middle;
+    font-size: 2.5rem;
 }
-
 .nav-item-text {
     vertical-align: middle;
     font-weight: 700;
@@ -731,9 +731,10 @@ ol.carousel-indicators li.active {
 }
 
 .couple-love {
-    width: 2.1875rem;
-    margin: 1.25rem 0;
-    animation: heartbeat 1.33s ease-in-out infinite;
+    color: red;
+    --fa-animation-duration: 1.5s;
+    vertical-align: middle;
+    margin: .75rem;
 }
 
 @keyframes heartbeat {
