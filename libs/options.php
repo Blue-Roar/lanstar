@@ -119,7 +119,7 @@ EOF;
     $recordNo->setAttribute('class', 'theme-setting-content theme-setting-global');
     $form->addInput($recordNo);
 
-    $footerName = new \Typecho\Widget\Helper\Form\Element\Text('footerName', NULL, NULL, '自定义脚部版权名称', '默认为@ 日期 站点名称');
+    $footerName = new \Typecho\Widget\Helper\Form\Element\Text('footerName', NULL, NULL, '自定义脚部版权名称', '默认为站点名称');
     $footerName->setAttribute('class', 'theme-setting-content theme-setting-global');
     $form->addInput($footerName);
 

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/extend/bootstrap.min.css');?>">
     <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/extend/toastify.min.css');?>">
     <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/main.css');?>">
+    <!--load all Font Awesome styles -->
+    <link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">
     <?php if(!$this->is('index')): ?>
         <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/extend/OwO.min.css');?>">
         <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/post.css');?>">

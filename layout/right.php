@@ -52,7 +52,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <?=  utils::handleRightIcon() ?>
         </div>
         <div class="time-text">
-            <span>已在风雨中度过 <?=  utils::getBuildTime($this->options->startTime);?></span>
+            <span>已在风雨中度过<?=  utils::getBuildTime($this->options->startTime);?></span>
         </div>
     </div>
 <?php endif; ?>

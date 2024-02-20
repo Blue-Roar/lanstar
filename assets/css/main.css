@@ -919,6 +919,7 @@ ol.carousel-indicators li.active {
 
 footer.container.footer {
     font-size: 1.45rem;
+    width: auto;
 }
 
 /* 返回顶部 */

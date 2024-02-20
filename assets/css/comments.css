@@ -68,6 +68,7 @@
 }
 .comment-author .time {
     margin-left: .5rem;
+    margin-top: .25rem;
     font-size: 1.2rem;
     color: var(--text2);
 }
@@ -119,11 +120,11 @@ li.comment-by-author > .comment-author span:after {
     border-radius: 50%;
 }
 #comments .comment-list > li .comment-author cite {
-    padding-left: 1.5rem;
+    padding-left: 1rem;
     font-style: normal;
 }
 #comments .comment-list > li .comment-meta {
-    margin-left: 5.5rem;
+    margin-left: 6rem;
     padding-bottom: .5rem;
     margin-top: -2rem;
 }

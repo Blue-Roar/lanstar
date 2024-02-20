@@ -72,9 +72,7 @@
                 <svg class="icon" aria-hidden="true">
                     <use xlink:href="#icon-lianjie"></use>
                 </svg>
-                <span>本文链接：<a class="item-link" href="<?php $this->permalink(); ?>"
-                                  title="转载时请注明本文出处及文章链接">
-                <?php $this->permalink(); ?></a></span>
+                <span>本文链接：<a class="item-link" href="<?php $this->permalink(); ?>" title="转载时请注明本文出处及文章链接"><?php $this->permalink(); ?></a></span>
             </div>
             <div class="item">
                 <svg class="icon" aria-hidden="true">

@@ -501,8 +501,7 @@ EOF;
         $time = time() - $site_create_time;
         if(is_numeric($time)){
             $value = array(
-                "years" => 0, "days" => 0, "hours" => 0,
-                "minutes" => 0, "seconds" => 0,
+                "years" => 0, "days" => 0 //, "hours" => 0, "minutes" => 0, "seconds" => 0,
             );
             if($time >= 31556926){
                 $value["years"] = floor($time/31556926);
@@ -512,120 +511,121 @@ EOF;
                 $value["days"] = floor($time/86400);
                 $time = ($time%86400);
             }
-            if($time >= 3600){
-                $value["hours"] = floor($time/3600);
-                $time = ($time%3600);
-            }
-            if($time >= 60){
-                $value["minutes"] = floor($time/60);
-                $time = ($time%60);
-            }
-            $value["seconds"] = floor($time);
+            // if($time >= 3600){
+            //     $value["hours"] = floor($time/3600);
+            //     $time = ($time%3600);
+            // }
+            // if($time >= 60){
+            //     $value["minutes"] = floor($time/60);
+            //     $time = ($time%60);
+            // }
+            // $value["seconds"] = floor($time);
 
-
-            if($value['years']>0){
-                echo ''.$value['years'].'年'.$value['days'].'天'.$value['hours'].'小时'.$value['minutes'].'分';
-            }else{
-                echo ''.$value['days'].'天'.$value['hours'].'小时'.$value['minutes'].'分';
-            }
-        }else{
-            echo '';
+            return ($value['years']>0 ? ($value['years'].'年') : '') . $value['days'].'天';//.$value['hours'].'小时'.$value['minutes'].'分';
         }
+        return null;
     }
     // 获取浏览器信息
     public static function getBrowser($agent) {
+        $browser = false;
         if (preg_match('/MSIE\s([^\s|;]+)/i', $agent, $regs)) {
-            $outputer = '<i class="ua-icon icon-ie"></i>&nbsp;&nbsp;Internet Explore';
+            $browser = '<i class="fa-brands fa-internet-explorer"></i> Internet Explorer';
         } else if (preg_match('/FireFox\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Firefox/', $regs[0]);
-            $FireFox_vern = explode('.', $str1[1]);
-            $outputer = '<i class="ua-icon icon-firefox"></i>&nbsp;&nbsp;FireFox';
-        } else if (preg_match('/Maxthon([\d]*)\/([^\s]+)/i', $agent, $regs)) {
-            $str1 = explode('Maxthon/', $agent);
-            $Maxthon_vern = explode('.', $str1[1]);
-            $outputer = '<i class="ua-icon icon-edge"></i>&nbsp;&nbsp;MicroSoft Edge';
-        } else if (preg_match('#360([a-zA-Z0-9.]+)#i', $agent, $regs)) {
-            $outputer = '<i class="ua-icon icon-360"></i>&nbsp;&nbsp;360极速浏览器';
+            $ver = explode('.', $str1[1])[0];
+            $browser = '<i class="fa-brands fa-firefox-browser"></i> Firefox '.$ver;
         } else if (preg_match('/Edge([\d]*)\/([^\s]+)/i', $agent, $regs)) {
-            $str1 = explode('Edge/', $regs[0]);
-            $Edge_vern = explode('.', $str1[1]);
-            $outputer = '<i class="ua-icon icon-edge"></i>&nbsp;&nbsp;MicroSoft Edge';
-        } else if (preg_match('/UC/i', $agent)) {
-            $str1 = explode('rowser/',  $agent);
-            $UCBrowser_vern = explode('.', $str1[1]);
-            $outputer = '<i class="ua-icon icon-uc"></i>&nbsp;&nbsp;UC浏览器';
-        }  else if (preg_match('/QQ/i', $agent, $regs)||preg_match('/QQBrowser\/([^\s]+)/i', $agent, $regs)) {
-            $str1 = explode('rowser/',  $agent);
-            $QQ_vern = explode('.', $str1[1]);
-            $outputer = '<i class= "ua-icon icon-qq"></i>&nbsp;&nbsp;QQ浏览器';
-        } else if (preg_match('/UBrowser/i', $agent, $regs)) {
-            $str1 = explode('rowser/',  $agent);
-            $UCBrowser_vern = explode('.', $str1[1]);
-            $outputer = '<i class="ua-icon icon-uc"></i>&nbsp;&nbsp;UC浏览器';
+            $str1 = explode('Edge/', $agent);
+            $ver = explode('.', $str1[1])[0];
+            $browser = '<i class="fa-brands fa-edge-legacy"></i> Edge '.$ver;
+        } else if (preg_match('/Edg([\d]*)\/([^\s]+)/i', $agent, $regs)) {
+            $str1 = explode('Edg/', $regs[0]);
+            $ver = explode('.', $str1[1])[0];
+            $browser = '<i class="fa-brands fa-edge"></i> Edge '.$ver;
         }  else if (preg_match('/Opera[\s|\/]([^\s]+)/i', $agent, $regs)) {
-            $outputer = '<i class= "ua-icon icon-opera"></i>&nbsp;&nbsp;Opera';
+            $browser = '<i class="fa-brands fa-opera"></i> Opera';
+        // } else if (preg_match('/Maxthon([\d]*)\/([^\s]+)/i', $agent, $regs)) {
+        //     $str1 = explode('Maxthon/', $agent);
+        //     $Maxthon_vern = explode('.', $str1[1]);
+        //     $browser = '<i class="fa-brands fa-edge-legacy"></i> 傲游浏览器';
+        // } else if (preg_match('#360([a-zA-Z0-9.]+)#i', $agent, $regs)) {
+        //     $browser = '<i class="ua-icon icon-360"></i>&nbsp;&nbsp;360极速浏览器';
+        // } else if (preg_match('/UC/i', $agent)) {
+        //     $str1 = explode('rowser/',  $agent);
+        //     $UCBrowser_vern = explode('.', $str1[1]);
+        //     $browser = '<i class="ua-icon icon-uc"></i>&nbsp;&nbsp;UC浏览器';
+        // }  else if (preg_match('/QQ/i', $agent, $regs)||preg_match('/QQBrowser\/([^\s]+)/i', $agent, $regs)) {
+        //     $str1 = explode('rowser/',  $agent);
+        //     $QQ_vern = explode('.', $str1[1]);
+        //     $browser = '<i class="fa-brands fa-qq"></i> QQ浏览器';
+        // } else if (preg_match('/UBrowser/i', $agent, $regs)) {
+        //     $str1 = explode('rowser/',  $agent);
+        //     $UCBrowser_vern = explode('.', $str1[1]);
+        //     $browser = '<i class="ua-icon icon-uc"></i>&nbsp;&nbsp;UC浏览器';
         } else if (preg_match('/Chrome([\d]*)\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Chrome/', $agent);
-            $chrome_vern = explode('.', $str1[1]);
-            $outputer = '<i class="ua-icon icon-chrome"></i>&nbsp;&nbsp;Google Chrome';
-        } else if (preg_match('/safari\/([^\s]+)/i', $agent, $regs)) {
+            $ver = explode('.', $str1[1])[0];
+            $browser = '<i class="fa-brands fa-chrome"></i> Chrome '.$ver;
+        } else if (preg_match('/Safari\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Version/',  $agent);
-            $safari_vern = explode('.', $str1[1]);
-            $outputer = '<i class="ua-icon icon-safari"></i>&nbsp;&nbsp;Safari';
-        } else{
-            $outputer = '<i class="ua-icon icon-chrome"></i>&nbsp;&nbsp;Google Chrome';
+            $ver = explode('.', $str1[1])[0];
+            $browser = '<i class="fa-brands fa-safari"></i> Safari '.$ver;
         }
-        echo $outputer;
+        return $browser;
     }
 
 
     // 获取操作系统信息
     public static function getOs($agent) {
         $os = false;
-
         if (preg_match('/win/i', $agent)) {
-            if (preg_match('/nt 6.0/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class= "ua-icon icon-win1"></i>&nbsp;&nbsp;Windows Vista&nbsp;/&nbsp;';
+            if (preg_match('/nt 5.1/i', $agent)) {
+                $os = '<i class="fa-brands fa-windows"></i> Windows XP';
+            } else if (preg_match('/nt 6.0/i', $agent)) {
+                $os = '<i class="fa-brands fa-windows"></i> Windows Vista';
             } else if (preg_match('/nt 6.1/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class= "ua-icon icon-win1"></i>&nbsp;&nbsp;Windows 7&nbsp;/&nbsp;';
+                $os = '<i class="fa-brands fa-windows"></i> Windows 7';
             } else if (preg_match('/nt 6.2/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-win2"></i>&nbsp;&nbsp;Windows 8&nbsp;/&nbsp;';
+                $os = '<i class="fa-brands fa-windows"></i> Windows 8';
             } else if(preg_match('/nt 6.3/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class= "ua-icon icon-win2"></i>&nbsp;&nbsp;Windows 8.1&nbsp;/&nbsp;';
-            } else if(preg_match('/nt 5.1/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-win1"></i>&nbsp;&nbsp;Windows XP&nbsp;/&nbsp;';
+                $os = '<i class="fa-brands fa-windows"></i> Windows 8.1';
             } else if (preg_match('/nt 10.0/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-win2"></i>&nbsp;&nbsp;Windows 10&nbsp;/&nbsp;';
+                $os = '<i class="fa-brands fa-windows"></i> Windows 10';
             } else if (preg_match('/nt 11.0/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-win2"></i>&nbsp;&nbsp;Windows 11&nbsp;/&nbsp;';
-            } else{
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-win2"></i>&nbsp;&nbsp;Windows X64&nbsp;/&nbsp;';
+                $os = '<i class="fa-brands fa-microsoft"></i> Windows 11';
+            } else {
+                $os = '<i class="fa-brands fa-windows"></i> Windows';
             }
         } else if (preg_match('/android/i', $agent)) {
             if (preg_match('/android 9/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-android"></i>&nbsp;&nbsp;Android Pie&nbsp;/&nbsp;';
+                $os = '<i class="fa-brands fa-android"></i> Android Pie';
+            } else if (preg_match('/android 8/i', $agent)) {
+                $os = '<i class="fa-brands fa-android"></i> Android Oreo';
+            } else {
+                $os = '<i class="fa-brands fa-android"></i> Android';
             }
-            else if (preg_match('/android 8/i', $agent)) {
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-android"></i>&nbsp;&nbsp;Android Oreo&nbsp;/&nbsp;';
-            }
-            else{
-                $os = '&nbsp;&nbsp;<i class="ua-icon icon-android"></i>&nbsp;&nbsp;Android&nbsp;/&nbsp;';
-            }
-        }
-        else if (preg_match('/ubuntu/i', $agent)) {
-            $os = '&nbsp;&nbsp;<i class="ua-icon icon-ubuntu"></i>&nbsp;&nbsp;Ubuntu&nbsp;/&nbsp;';
-        } else if (preg_match('/linux/i', $agent)) {
-            $os = '&nbsp;&nbsp;<i class= "ua-icon icon-linux"></i>&nbsp;&nbsp;Linux&nbsp;/&nbsp;';
+        } else if (preg_match('/Ubuntu/i', $agent)) {
+            $os = '<i class="fa-brands fa-ubuntu"></i> Ubuntu';
+        } else if (preg_match('/CentOS/i', $agent)) {
+            $os = '<i class="fa-brands fa-centos"></i> CentOS';
+        } else if (preg_match('/Fedora/i', $agent)) {
+            $os = '<i class="fa-brands fa-fedora"></i> Fedora';
+        } else if (preg_match('/SUSE/i', $agent)) {
+            $os = '<i class="fa-brands fa-suse"></i> SUSE';
+        } else if (preg_match('/Red Hat/i', $agent)) {
+            $os = '<i class="fa-brands fa-redhat"></i> Red Hat';
+        } else if (preg_match('/FreeBSD/i', $agent)) {
+            $os = '<i class="fa-brands fa-freebsd"></i> FreeBSD';
+        } else if (preg_match('/Linux/i', $agent)) {
+            $os = '<i class="fa-brands fa-linux"></i> Linux';
         } else if (preg_match('/iPhone/i', $agent)) {
-            $os = '&nbsp;&nbsp;<i class="ua-icon icon-apple"></i>&nbsp;&nbsp;iPhone&nbsp;/&nbsp;';
+            $os = '<i class="fa-brands fa-apple"></i> iPhone';
         } else if (preg_match('/mac/i', $agent)) {
-            $os = '&nbsp;&nbsp;<i class="ua-icon icon-mac"></i>&nbsp;&nbsp;MacOS&nbsp;/&nbsp;';
-        }else if (preg_match('/fusion/i', $agent)) {
-            $os = '&nbsp;&nbsp;<i class="ua-icon icon-android"></i>&nbsp;&nbsp;Android&nbsp;/&nbsp;';
+            $os = '<i class="fa-brands fa-apple"></i> macOS';
         } else {
-            $os = '&nbsp;&nbsp;<i class="ua-icon icon-linux"></i>&nbsp;&nbsp;Linux&nbsp;/&nbsp;';
+            $os = '未知操作系统';
         }
-        echo $os;
+        return $os;
     }
 
     /**

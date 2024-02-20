@@ -26,14 +26,12 @@ function threadedComments($comments, $options)
                 <img class="avatar" src="<?php utils::emailHandle($comments->mail); ?>s=100" width="64" height="64">
             </span>
             <cite class="fn" itemprop="name"><a href="<?= $comments->authorId > 0 ? '/author/' . $comments->authorId : $comments->url; ?>" rel="external nofollow"><?= $comments->author; ?></a></cite>
-            <a class="time" href="<?php $comments->permalink(); ?>">
-                <time datetime="<?php $comments->date(); ?>"><?php $comments->date('Y-m-d H:i:s'); ?></time>
-            </a>
+            <a class="time" href="<?php $comments->permalink(); ?>"><?php $comments->date('Y-m-d H:i:s'); ?></time></a>
         </div>
         <div class="comment-meta">
             <div class="comment-ua">
-                <span class="author-system"><?php utils::getOs($comments->agent); ?></span>
-                <span class="author-browser"><?php utils::getBrowser($comments->agent); ?></span>
+                <?=utils::getOs($comments->agent)?'<span class="author-system">'.utils::getOs($comments->agent).'</span>':''?>
+                <?=utils::getBrowser($comments->agent)?'<span class="author-browser">'.utils::getBrowser($comments->agent).'</span>':''?>
             </div>
         </div>
         <div class="comment-content">
@@ -84,6 +82,7 @@ function threadedComments($comments, $options)
                 <div class="comments-toolbar">
                     <div id="OwO" class="OwO"></div>
                     <div class="option">
+                        <label for="secret-button">私密回复</label>
                         <input type="checkbox" id="secret-button" name="secret">
                         <label for="secret-button" class="secret-label" title="开启该功能，您的评论仅作者和评论双方可见">
                             <span class="circle"></span>

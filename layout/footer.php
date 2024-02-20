@@ -1,21 +1,14 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <footer class="container footer">
-    &copy; <?=  date('Y');?>
-    <?php if($this->options->footerName):?>
-        <?php $this->options->footerName();?>
-    <?php else:?>
-        <a class="footer-item" href="<?php $this->options->siteUrl();?>"><?php $this->options->title();?></a>
-        <span style='color:#d14836'>❤</span>
-    <?php endif;?>
-    <br>
-    <?php if ($this->options->recordNo):?>
-        <a class="footer-item" target="_blank"
-           href="http://beian.miit.gov.cn/"> <?php $this->options->recordNo();?></a>
-    <?php endif;?>
-    <div>
+    <p class="footer-item">
+        &copy; <?=($this->options->startTime)?(date("Y",strtotime($this->options->startTime)).'~'):('')?><?=date('Y')?>
+        <strong><a href="<?=$this->options->siteUrl?>"><?=$this->options->footerName?$this->options->footerName:$this->options->title?></a></strong>
+        <?=($this->options->recordNo) ? '<a class="footer-item" target="_blank" href="https://beian.miit.gov.cn/">'.$this->options->recordNo.'</a>' : ''?>
+    </p>
+    <p>
         <?php $this->options->footerEcho();?>
-    </div>
-    <p class="footer-item">Theme By <a href="https://dyedd.cn" title="禁止仿制" class="footer-item">Lanstar</a></p>
+    </p>
+    <p class="footer-item">由 <a href="https://typecho.org/" target="_blank"><img style="height:2rem;filter:brightness(1);" src="https://typecho.org/usr/themes/bluecode/img/typecho-logo.svg" alt="typecho"></img></a> + <a href="https://dyedd.cn/" title="禁止仿制">Lanstar</a> 主题强力驱动</p>
 </footer>
 <?php $this->footer(); ?>
 <div class="tools">
