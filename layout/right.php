@@ -60,21 +60,17 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <?php while ($comments->next()): ?>
                     <div class="sidebar-reply mb-3" style="max-width: 540px;">
                         <div class="row g-0">
-                            <div class="col-md-2">
-                                <img class="rounded-circle sidebar-reply-img"
-                                     src="<?php utils::emailHandle($comments->mail); ?>s=100"/>
-                            </div>
-                            <div class="col-md-10">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?php $comments->author(false); ?></h5>
-                                    <p class="card-text">
-                                        <a class="sidebar-reply-content" href="<?php $comments->permalink(); ?>"
-                                           target="_blank">
-                                            <?php contents::parseHide($comments->excerpt(35, '...')); ?>
-                                        </a>
-                                    </p>
-                                    <p class="card-text"><small class="text-muted"><?=  date('Y-m-d', $comments->created); ?></small></p>
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <img class="rounded-circle sidebar-reply-img" src="<?php utils::emailHandle($comments->mail); ?>s=100"/>
+                                    <span class="author"><?php $comments->author(false); ?></span>
+                                    <span class="date text-muted"><?=date('Y-m-d', $comments->created); ?></span>
                                 </div>
+                                <p class="card-text">
+                                    <a class="sidebar-reply-content" href="<?php $comments->permalink(); ?>" target="_blank">
+                                        <?php contents::parseHide($comments->excerpt(35, '...')); ?>
+                                    </a>
+                                </p>
                             </div>
                         </div>
                     </div>

@@ -173,7 +173,7 @@ a, a:hover {
 .site-description {
     color: var(--text2);
     font-weight: 400;
-    margin: 1rem 0;
+    /* margin: 1rem 0; */
     font-size: 1.6rem;
 }
 @media (max-width: 800px){
@@ -796,8 +796,18 @@ ol.carousel-indicators li.active {
     font-size: 1.5rem;
 }
 
+.card-title {
+    margin-bottom: 0;
+}
+.card-title .author {
+    font-weight: 600;
+}
+.card-title .date {
+    font-size: 1rem;
+}
+
 .card-text {
-    margin-bottom: -.5rem;
+    margin-bottom: 0;
     font-size: 1.25rem;
 }
 
@@ -936,6 +946,7 @@ footer.container.footer {
 
 .alert {
     font-size: 1.5rem;
+    margin: 1rem 0;
 }
 
 /* fix*/
@@ -1025,6 +1036,10 @@ html.theme-dark, .theme-dark img {
     filter: invert(1) hue-rotate(180deg);
 }
 /*负负得正*/
+.theme-dark .article-title,
+.theme-dark .sidebar-rand-item {
+    filter: invert(1) hue-rotate(180deg);
+}
 .theme-dark i,
 .theme-dark li.comment-by-author > .comment-author span:after,
 .theme-dark .article-title a,
@@ -1034,12 +1049,9 @@ html.theme-dark, .theme-dark img {
 .theme-dark .emoji,
 .theme-dark pre,
 .theme-dark .license .icon {
-    filter: invert(1) hue-rotate(180deg);
+    filter: none;
 }
-.theme-dark .emoji {
-    background-color:  rgba(0,0,0,0.6);
-}
-.theme-dark .sidebar-rand-content a,
+/* .theme-dark .sidebar-rand-content a,
 .theme-dark .sidebar-rand-footer{
     color: var(--theme-text-color)!important;
-}
+} */
