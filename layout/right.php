@@ -10,16 +10,18 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         <button class="nav-search-btn" type="submit"><span class="fa-2x fa-solid fa-search" style="vertical-align: middle;"></span></button>
     </form>
 </div>
-<?php if ($this->options->sidebarBlock && in_array('ShowYourCouple', $this->options->sidebarBlock)): ?>
-    <div class="sidebar-box couple">
-        <img class="pic" src="<?php $this->options->asideAvatar(); ?>" alt="博主">
-        <span class="couple-love fa-2x fa-solid fa-heart fa-beat"></span>
-        <img class="pic" src="<?php $this->options->taAvatar(); ?>" alt="另一半">
-        <div id="our-company" data-start="<?php $this->options->company(); ?>"></div>
+<?php if ($this->options->coupleFunction): ?>
+    <div class="sidebar-box">
+        <div class="couple">
+            <img class="pic" src="<?php $this->options->coupleAvatar1(); ?>">
+            <span class="couple-love fa-2x fa-solid fa-heart fa-beat"></span>
+            <img class="pic" src="<?php $this->options->coupleAvatar2(); ?>">
+        </div>
+        <div class="time-text"><?php $this->options->committedDateStr(); ?><?=utils::calcDuration($this->options->committedDate)?></div>
     </div>
 <?php endif; ?>
-<?php if ($this->options->sidebarBlock && in_array('ShowBlogInfo', $this->options->sidebarBlock)): ?>
-    <div class="card user-container">
+<?php if ($this->options->ShowBlogInfo): ?>
+    <div class="sidebar-box">
         <?php Typecho_Widget::widget('Widget_Stat')->to($item); ?>
         <div class="count">
             <div class="item" title="累计文章数">
@@ -43,15 +45,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             <a href="<?php $this->options->siteUrl(); ?>feed" title="rss" target="_blank"><span class="fa-2x fa-solid fa-rss"></span></a>
             <?=  utils::handleRightIcon() ?>
         </div>
-        <div class="time-text">
-            <span><?php $this->options->startTimeStr(); ?><?=utils::getBuildTime($this->options->startTime)?></span>
-        </div>
+        <div class="time-text"><?php $this->options->setupDateStr(); ?><?=utils::calcDuration($this->options->setupDate)?></span></div>
     </div>
 <?php endif; ?>
 <?php if ($this->is('post')): ?>
 <?php $this->need('component/post.catalog.php'); ?>
 <?php endif; ?>
-<?php if ($this->options->sidebarBlock && in_array('ShowRecentComments', $this->options->sidebarBlock)): ?>
+<?php if ($this->options->ShowRecentComments): ?>
     <?php if ($this->is('index')): ?>
         <div class="sidebar-box">
             <div class="p-3"><h6>最近消息</h6></div>
@@ -83,7 +83,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
         </div>
     <?php endif; ?>
 <?php endif; ?>
-<?php if ($this->options->sidebarBlock && in_array('ShowInterestPosts', $this->options->sidebarBlock)): ?>
+<?php if ($this->options->ShowInterestPosts): ?>
     <div class="sidebar-box">
         <div class="p-3"><h6>可能感兴趣</h6></div>
         <div class="sidebar-content px-3 pb-2">

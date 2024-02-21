@@ -316,6 +316,7 @@ span.agree-num {
     background-color: #fff;
     box-sizing: border-box;
     overflow-y: scroll;
+    padding: 1rem 0;
 }
 .article-catalog-title {
     height: 1.5rem;

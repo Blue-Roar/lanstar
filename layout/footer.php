@@ -1,9 +1,9 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
 <footer class="container footer">
     <p class="footer-item">
-        &copy; <?=($this->options->startTime)?(date("Y",strtotime($this->options->startTime)).'~'):('')?><?=date('Y')?>
+        &copy; <?=($this->options->setupDate)?(date("Y",strtotime($this->options->setupDate)).'~'):('')?><?=date('Y')?>
         <strong><a href="<?=$this->options->siteUrl?>"><?=$this->options->footerName?$this->options->footerName:$this->options->title?></a></strong>
-        <?=($this->options->recordNo) ? '<a class="footer-item" target="_blank" href="https://beian.miit.gov.cn/">'.$this->options->recordNo.'</a>' : ''?>
+        <?=($this->options->recordNo) ? '(<a class="footer-item" target="_blank" href="https://beian.miit.gov.cn/">'.$this->options->recordNo.'</a>)' : ''?>
     </p>
     <p>
         <?php $this->options->footerEcho();?>
@@ -18,7 +18,7 @@
             <p>暗黑模式</p>
         </div>
         <div class="chose-mode-moon" id="night-mode" type="button">
-            <span class="fa-3x fa-solid fa-sun"></span>
+            <span class="fa-3x fa-solid fa-moon"></span>
             <p>暗黑模式</p>
         </div>
     <?php endif; ?>

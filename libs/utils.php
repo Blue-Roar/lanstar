@@ -479,43 +479,36 @@ EOF;
         }
     }
     /**
-     * 秒转时间，格式 年 月 日 时 分 秒
+     * 计算到现在为止的持续时间
      *
      * @author Roogle
      * @return html
      */
-    public static function getBuildTime($time){
+    public static function calcDuration($time){
         // 设置时区
         date_default_timezone_set('Asia/Shanghai');
-        // 在下面按格式输入本站创建的时间
-        $options = Typecho_Widget::widget('Widget_Options');
-        $start_Time = $options->startTime;
-        $site_create_time = strtotime($time);
-        if(!empty($start_Time)){
-            $site_create_time = strtotime($start_Time);
-        }
-        $time = time() - $site_create_time;
-        if(is_numeric($time)){
+        $duration = time() - strtotime($time);
+        if (is_numeric($duration)){
             $value = array(
                 "years" => 0, "days" => 0 //, "hours" => 0, "minutes" => 0, "seconds" => 0,
             );
-            if($time >= 31556926){
-                $value["years"] = floor($time/31556926);
-                $time = ($time%31556926);
+            if($duration >= 31556926){
+                $value["years"] = floor($duration/31556926);
+                $duration = ($duration%31556926);
             }
-            if($time >= 86400){
-                $value["days"] = floor($time/86400);
-                $time = ($time%86400);
+            if($duration >= 86400){
+                $value["days"] = floor($duration/86400);
+                $duration = ($duration%86400);
             }
-            // if($time >= 3600){
-            //     $value["hours"] = floor($time/3600);
-            //     $time = ($time%3600);
+            // if($duration >= 3600){
+            //     $value["hours"] = floor($duration/3600);
+            //     $duration = ($duration%3600);
             // }
-            // if($time >= 60){
-            //     $value["minutes"] = floor($time/60);
-            //     $time = ($time%60);
+            // if($duration >= 60){
+            //     $value["minutes"] = floor($duration/60);
+            //     $duration = ($duration%60);
             // }
-            // $value["seconds"] = floor($time);
+            // $value["seconds"] = floor($duration);
 
             return ($value['years']>0 ? ($value['years'].'年') : '') . $value['days'].'天';//.$value['hours'].'小时'.$value['minutes'].'分';
         }

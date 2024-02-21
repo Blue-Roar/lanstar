@@ -137,7 +137,8 @@ li {
 
 .theme-setting-contain > form .theme-setting-content {
     display: none;
-    padding: 20px
+    padding: 0 20px;
+    margin: 20px 0;
 }
 
 .theme-setting-contain > form .theme-setting-content li {

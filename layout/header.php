@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/extend/bootstrap.min.css');?>">
-    <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/extend/toastify.min.css');?>">
+    <!-- <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/extend/bootstrap.min.css');?>"> -->
+    <link href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/5.1.3/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/extend/toastify.min.css');?>"> -->
+    <link href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/toastify-js/1.11.2/toastify.min.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="<?php utils::indexTheme('assets/css/main.css');?>">
     <!--load all Font Awesome styles -->
     <link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous">

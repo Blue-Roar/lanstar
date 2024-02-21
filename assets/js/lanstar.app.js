@@ -46,25 +46,11 @@ const app = {
         }
         return time;
     },
-    setTime: () => {
-        const startTime = document.getElementById('our-company').getAttribute('data-start');
-        let create_time = Math.round(new Date(startTime).getTime() / 1000);
-        let timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
-        let currentTime = app.secondToDate((timestamp - create_time));
-        document.getElementById('our-company').innerHTML = '<span>' + currentTime[0] + '</span>' + '<svg class="icon" aria-hidden="true">\n' +
-            '<use xlink:href="#icon-huaban"></use>' +
-            '</svg><span>' + currentTime[1] + '</span><svg class="icon" aria-hidden="true">' +
-            '<use xlink:href="#icon-tian"></use>' +
-            '</svg><span>'
-            + currentTime[2] + '</span><svg class="icon" aria-hidden="true">' +
-            '<use xlink:href="#icon-shi"></use>' +
-            '</svg><span>' + currentTime[3] + '</span><svg class="icon" aria-hidden="true">' +
-            '<use xlink:href="#icon-fen"></use>' +
-            '</svg><span>' + currentTime[4]
-            + '</span><svg class="icon" aria-hidden="true">' +
-            '<use xlink:href="#icon-miao"></use>' +
-            '</svg>';
-    },
+    // setTime: () => {
+    //     let create_time = Math.round(new Date(startTime).getTime() / 1000);
+    //     let timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+    //     let currentTime = app.secondToDate((timestamp - create_time));
+    // },
     addMobile: ()=>{
         document.querySelector(".mobile-left")?.addEventListener('click',
             function () {
@@ -236,9 +222,6 @@ const app = {
                 }
             }
         })
-    },
-    addCoupleTime: () => {
-        setInterval(app.setTime, 1000);
     },
     addMorePages() {
         document.querySelector('.page-pagination .next')?.addEventListener(
