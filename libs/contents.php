@@ -256,7 +256,7 @@ class contents{
         $text = preg_replace_callback('/\[collapse-item label="(.*?)"\](.*?)\[\/collapse-item\]/ism', function ($text) {
             return '<div class="collapse-head">
                     <span>' . $text[1] . '</span>
-                    <svg class="icon" aria-hidden="true"><use xlink:href="#icon-xiala-"></use></svg>
+                    <span class="fa-solid fa-circle-chevron-down"></span>
                 </div>
                 <div class="collapse-body">' . $text[2] . '</div>';
         }, $text);

@@ -84,18 +84,16 @@ class utils
                     $content .= '
                 <div class="nav-item">
                     <a class="' . $class . '" href="' . $pages->permalink . '" title="' . $pages->title . '">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#' . $navArr[$start - $count] . '"></use>
-                            </svg>
-                            <span class="nav-item-text">' . $pages->title . '</span>
+                        <span class="nav-item-icon ' . $navArr[$start - $count] . ' fa-fw"></span>
+                        <span class="nav-item-text">' . $pages->title . '</span>
                     </a>
                 </div>';
                     $count--;
                 } else {
                     $content .= '<div class="nav-item">
                     <a class="' . $class . '" href="' . $pages->permalink . '" title="' . $pages->title . '">
-                            <span class="nav-item-icon fa-solid fa-box-archive"></span>
-                            <span class="nav-item-text">' . $pages->title . '</span>
+                        <span class="nav-item-icon fa-solid fa-compass fa-fw"></span>
+                        <span class="nav-item-text">' . $pages->title . '</span>
                     </a></div>';
                 }
             }else{
@@ -103,20 +101,16 @@ class utils
                     $content .= '
                 <li class="nav-item">
                     <a class="' . $class . '" href="' . $pages->permalink . '" title="' . $pages->title . '">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#' . $navArr[$start - $count] . '"></use>
-                            </svg>
-                            <span class="nav-item-text">' . $pages->title . '</span>
+                        <span class="nav-item-icon ' . $navArr[$start - $count] . ' fa-fw"></span>
+                        <span class="nav-item-text">' . $pages->title . '</span>
                     </a>
                 </li>';
                     $count--;
                 } else {
                     $content .= '<li class="nav-item">
                     <a class="' . $class . '" href="' . $pages->permalink . '" title="' . $pages->title . '">
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-daohang"></use>
-                            </svg>
-                            <span class="nav-item-text">' . $pages->title . '</span>
+                        <span class="nav-item-icon fa-solid fa-compass fa-fw"></span>
+                        <span class="nav-item-text">' . $pages->title . '</span>
                     </a></li>';
                 }
             }
@@ -397,7 +391,7 @@ class utils
                 $iconInfo = explode('+', $value);
                 $content = <<<EOF
                 <a href="$iconInfo[2]" title="$iconInfo[0]" target="_blank">
-                    <span class="fa-2x $iconInfo[1]"></span>
+                    <span class="fa-2x $iconInfo[1] fa-fw"></span>
                 </a>
 EOF;
                 $text .= $content;
@@ -518,21 +512,21 @@ EOF;
     public static function getBrowser($agent) {
         $browser = false;
         if (preg_match('/MSIE\s([^\s|;]+)/i', $agent, $regs)) {
-            $browser = '<i class="fa-brands fa-internet-explorer"></i> Internet Explorer';
+            $browser = '<i class="fa-brands fa-internet-explorer fa-fw"></i> Internet Explorer';
         } else if (preg_match('/FireFox\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Firefox/', $regs[0]);
             $ver = explode('.', $str1[1])[0];
-            $browser = '<i class="fa-brands fa-firefox-browser"></i> Firefox '.$ver;
+            $browser = '<i class="fa-brands fa-firefox-browser fa-fw"></i> Firefox '.$ver;
         } else if (preg_match('/Edge([\d]*)\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Edge/', $agent);
             $ver = explode('.', $str1[1])[0];
-            $browser = '<i class="fa-brands fa-edge-legacy"></i> Edge '.$ver;
+            $browser = '<i class="fa-brands fa-edge-legacy fa-fw"></i> Edge '.$ver;
         } else if (preg_match('/Edg([\d]*)\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Edg/', $regs[0]);
             $ver = explode('.', $str1[1])[0];
-            $browser = '<i class="fa-brands fa-edge"></i> Edge '.$ver;
+            $browser = '<i class="fa-brands fa-edge fa-fw"></i> Edge '.$ver;
         }  else if (preg_match('/Opera[\s|\/]([^\s]+)/i', $agent, $regs)) {
-            $browser = '<i class="fa-brands fa-opera"></i> Opera';
+            $browser = '<i class="fa-brands fa-opera fa-fw"></i> Opera';
         // } else if (preg_match('/Maxthon([\d]*)\/([^\s]+)/i', $agent, $regs)) {
         //     $str1 = explode('Maxthon/', $agent);
         //     $Maxthon_vern = explode('.', $str1[1]);
@@ -554,11 +548,11 @@ EOF;
         } else if (preg_match('/Chrome([\d]*)\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Chrome/', $agent);
             $ver = explode('.', $str1[1])[0];
-            $browser = '<i class="fa-brands fa-chrome"></i> Chrome '.$ver;
+            $browser = '<i class="fa-brands fa-chrome fa-fw"></i> Chrome '.$ver;
         } else if (preg_match('/Safari\/([^\s]+)/i', $agent, $regs)) {
             $str1 = explode('Version/',  $agent);
             $ver = explode('.', $str1[1])[0];
-            $browser = '<i class="fa-brands fa-safari"></i> Safari '.$ver;
+            $browser = '<i class="fa-brands fa-safari fa-fw"></i> Safari '.$ver;
         }
         return $browser;
     }
@@ -569,48 +563,48 @@ EOF;
         $os = false;
         if (preg_match('/win/i', $agent)) {
             if (preg_match('/nt 5.1/i', $agent)) {
-                $os = '<i class="fa-brands fa-windows"></i> Windows XP';
+                $os = '<i class="fa-brands fa-windows fa-fw"></i> Windows XP';
             } else if (preg_match('/nt 6.0/i', $agent)) {
-                $os = '<i class="fa-brands fa-windows"></i> Windows Vista';
+                $os = '<i class="fa-brands fa-windows fa-fw"></i> Windows Vista';
             } else if (preg_match('/nt 6.1/i', $agent)) {
-                $os = '<i class="fa-brands fa-windows"></i> Windows 7';
+                $os = '<i class="fa-brands fa-windows fa-fw"></i> Windows 7';
             } else if (preg_match('/nt 6.2/i', $agent)) {
-                $os = '<i class="fa-brands fa-windows"></i> Windows 8';
+                $os = '<i class="fa-brands fa-windows fa-fw"></i> Windows 8';
             } else if(preg_match('/nt 6.3/i', $agent)) {
-                $os = '<i class="fa-brands fa-windows"></i> Windows 8.1';
+                $os = '<i class="fa-brands fa-windows fa-fw"></i> Windows 8.1';
             } else if (preg_match('/nt 10.0/i', $agent)) {
-                $os = '<i class="fa-brands fa-windows"></i> Windows 10';
+                $os = '<i class="fa-brands fa-windows fa-fw"></i> Windows 10';
             } else if (preg_match('/nt 11.0/i', $agent)) {
-                $os = '<i class="fa-brands fa-microsoft"></i> Windows 11';
+                $os = '<i class="fa-brands fa-microsoft fa-fw"></i> Windows 11';
             } else {
-                $os = '<i class="fa-brands fa-windows"></i> Windows';
+                $os = '<i class="fa-brands fa-windows fa-fw"></i> Windows';
             }
         } else if (preg_match('/android/i', $agent)) {
             if (preg_match('/android 9/i', $agent)) {
-                $os = '<i class="fa-brands fa-android"></i> Android Pie';
+                $os = '<i class="fa-brands fa-android fa-fw"></i> Android Pie';
             } else if (preg_match('/android 8/i', $agent)) {
-                $os = '<i class="fa-brands fa-android"></i> Android Oreo';
+                $os = '<i class="fa-brands fa-android fa-fw"></i> Android Oreo';
             } else {
-                $os = '<i class="fa-brands fa-android"></i> Android';
+                $os = '<i class="fa-brands fa-android fa-fw"></i> Android';
             }
         } else if (preg_match('/Ubuntu/i', $agent)) {
-            $os = '<i class="fa-brands fa-ubuntu"></i> Ubuntu';
+            $os = '<i class="fa-brands fa-ubuntu fa-fw"></i> Ubuntu';
         } else if (preg_match('/CentOS/i', $agent)) {
-            $os = '<i class="fa-brands fa-centos"></i> CentOS';
+            $os = '<i class="fa-brands fa-centos fa-fw"></i> CentOS';
         } else if (preg_match('/Fedora/i', $agent)) {
-            $os = '<i class="fa-brands fa-fedora"></i> Fedora';
+            $os = '<i class="fa-brands fa-fedora fa-fw"></i> Fedora';
         } else if (preg_match('/SUSE/i', $agent)) {
-            $os = '<i class="fa-brands fa-suse"></i> SUSE';
+            $os = '<i class="fa-brands fa-suse fa-fw"></i> SUSE';
         } else if (preg_match('/Red Hat/i', $agent)) {
-            $os = '<i class="fa-brands fa-redhat"></i> Red Hat';
+            $os = '<i class="fa-brands fa-redhat fa-fw"></i> Red Hat';
         } else if (preg_match('/FreeBSD/i', $agent)) {
-            $os = '<i class="fa-brands fa-freebsd"></i> FreeBSD';
+            $os = '<i class="fa-brands fa-freebsd fa-fw"></i> FreeBSD';
         } else if (preg_match('/Linux/i', $agent)) {
-            $os = '<i class="fa-brands fa-linux"></i> Linux';
+            $os = '<i class="fa-brands fa-linux fa-fw"></i> Linux';
         } else if (preg_match('/iPhone/i', $agent)) {
-            $os = '<i class="fa-brands fa-apple"></i> iPhone';
+            $os = '<i class="fa-brands fa-apple fa-fw"></i> iPhone';
         } else if (preg_match('/mac/i', $agent)) {
-            $os = '<i class="fa-brands fa-apple"></i> macOS';
+            $os = '<i class="fa-brands fa-apple fa-fw"></i> macOS';
         } else {
             $os = '未知操作系统';
         }

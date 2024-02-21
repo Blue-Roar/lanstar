@@ -3,7 +3,7 @@
     <h6 class="article-catalog-title">
         <?php _e('目录'); ?>
     </h6>
-    <div class="article-list-title">来自 《<?php $this->title(); ?>》</div>
+    <div class="article-list-title"><?php $this->title(); ?></div>
     <ul class="article-catalog-list">
     </ul>
 </section>

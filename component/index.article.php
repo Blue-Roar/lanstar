@@ -56,22 +56,22 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
                 <?php endif;?>
                 <div class="extra">
                     <div class="view">
-                        <span class="fa-solid fa-eye"></span>
+                        <span class="fa-solid fa-eye fa-fw"></span>
                         <?php utils::getPostView($this); ?>
                     </div>
                     <div class="commentNum">
-                        <span class="fa-solid fa-comments"></span>
+                        <span class="fa-solid fa-comments fa-fw"></span>
                         <?php $this->commentsNum('0', '1', '%d'); ?>
                     </div>
                     <div class="articleCount">
-                        <span class="fa-solid fa-chart-bar"></span>
+                        <span class="fa-solid fa-chart-bar fa-fw"></span>
                         <?php utils::artCount($this->cid); ?>
                     </div>
                     <div class="like" data-cid="<?php $this->cid(); ?>"
                          data-bs-toggle="tooltip" data-bs-placement="right"
                          data-bs-title="喜欢">
                         <?php $agree = $this->hidden ? array('agree' => 0, 'recording' => true) : utils::agreeNum($this->cid); ?>
-                        <span class="fa-solid fa-heart"></span>
+                        <span class="fa-solid fa-heart fa-fw"></span>
                         <b class="agree-num"><?=  $agree['agree']; ?></b>
                     </div>
                 </div>

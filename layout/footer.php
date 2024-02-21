@@ -14,22 +14,22 @@
 <div class="tools">
     <?php if ($this->options->darkBtn): ?>
         <div class="chose-mode-day" id="night-mode" type="button">
-            <span class="fa-3x fa-solid fa-sun"></span>
+            <span class="fa-3x fa-solid fa-sun fa-fw"></span>
             <p>暗黑模式</p>
         </div>
         <div class="chose-mode-moon" id="night-mode" type="button">
-            <span class="fa-3x fa-solid fa-moon"></span>
+            <span class="fa-3x fa-solid fa-moon fa-fw"></span>
             <p>暗黑模式</p>
         </div>
     <?php endif; ?>
     <?php if($this->is('post')): ?>
         <div onclick="location.href='#comment'">
-            <span class="fa-3x fa-solid fa-comment-dots"></span>
+            <span class="fa-3x fa-solid fa-comment-dots fa-fw"></span>
             <p>评论</p>
         </div>
     <?php endif; ?>
     <div class="back-to-top" onclick="app.addBackTop()">
-        <span class="fa-3x fa-solid fa-chevron-up"></span>
+        <span class="fa-3x fa-solid fa-chevron-up fa-fw"></span>
         <p>返回顶部</p>
     </div>
 </div>

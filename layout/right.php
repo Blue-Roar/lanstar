@@ -42,10 +42,12 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
             </div>
         </div>
         <div class="card-icon">
-            <a href="<?php $this->options->siteUrl(); ?>feed" title="rss" target="_blank"><span class="fa-2x fa-solid fa-rss"></span></a>
+            <a href="<?php $this->options->siteUrl(); ?>feed" title="rss" target="_blank"><span class="fa-2x fa-solid fa-rss fa-fw"></span></a>
             <?=  utils::handleRightIcon() ?>
         </div>
+<?php if ($this->options->setupDate): ?>
         <div class="time-text"><?php $this->options->setupDateStr(); ?><?=utils::calcDuration($this->options->setupDate)?></span></div>
+<?php endif; ?>
     </div>
 <?php endif; ?>
 <?php if ($this->is('post')): ?>

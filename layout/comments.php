@@ -100,8 +100,8 @@ function threadedComments($comments, $options)
             <?php $comments->listComments(); ?>
             <?php
             $comments->pageNav(
-                '<span class="fa-3x fa-solid fa-chevron-left"></span>',
-                '<span class="fa-3x fa-solid fa-chevron-right"></span>',
+                '<span class="fa-solid fa-chevron-left fa-fw"></span>',
+                '<span class="fa-solid fa-chevron-right fa-fw"></span>',
                 1, '...', array(
                 'wrapTag' => 'ul',
                 'wrapClass' => 'pagination justify-content-center',

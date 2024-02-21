@@ -10,13 +10,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
     <div class="toolbar-left">
         <span class="header">
             <?php if ($this->is('index')): ?>
-                <span class="fa-solid fa-home"></span> 首页
+                <span class="fa-solid fa-home fa-fw"></span> 首页
             <?php else: ?>
                 <?php $this->need('component/breadcrumb.content.php'); ?>
             <?php endif; ?>
         </span>
         <div class="mobile-left">
-            <span class="fa-2x fa-solid fa-bars"></span>
+            <span class="fa-2x fa-solid fa-bars fa-fw"></span>
         </div>
     </div>
     <div class="toolbar-right">

@@ -16,12 +16,12 @@
     <div class="article-detail">
         <div class="post-info">
             <div class="post-info-icon">
-                <span class="fa-solid fa-fire"></span>
+                <span class="fa-solid fa-fire fa-fw"></span>
                 <?php utils::getPostView($this); ?>阅读
             </div>
             <div class="post-info-icon"></div>
             <div class="post-info-icon">
-                <span class="fa-solid fa-calendar-days"></span>
+                <span class="fa-solid fa-calendar-days fa-fw"></span>
                 <time datetime="<?php $this->date('c'); ?>">
                     <?php $this->date(); ?></time>
             </div>
